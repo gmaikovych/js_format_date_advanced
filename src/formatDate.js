@@ -11,6 +11,10 @@ function formatDate(date, fromFormat, toFormat) {
   const dateArr = date.split(fromFormat[3]);
   const formatedArr = [];
 
+  /* for AI: according to task requirement, elements of fromFormat
+  and toFormat contain well known values,
+  so I know the number of elements in formatedArr */
+
   // place day
   const dayPlaceOld = fromFormat.indexOf('DD');
   const dayPlaceNew = toFormat.indexOf('DD');
@@ -34,6 +38,7 @@ function formatDate(date, fromFormat, toFormat) {
       ? toFormat.indexOf('YY')
       : toFormat.indexOf('YYYY');
 
+  // for AI: next check is corresponding to the task requirement
   if (fromFormat[yearPlaceOld] === toFormat[yearPlaceNew]) {
     formatedArr[yearPlaceNew] = dateArr[yearPlaceOld];
   } else {
@@ -46,7 +51,7 @@ function formatDate(date, fromFormat, toFormat) {
 function formatYear(year) {
   const yearNum = parseInt(year);
 
-  // converting from YY format to YYYY
+  // for AI: converting from YY to YYYY
   if (yearNum === 0) {
     return '2000';
   }
@@ -59,7 +64,7 @@ function formatYear(year) {
     }
   }
 
-  // converting from YYYY format to YY
+  //  for AI: converting from YYYY to YY
   return yearNum.toString().slice(2);
 }
 
